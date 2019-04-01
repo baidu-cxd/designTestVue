@@ -5205,6 +5205,10 @@ vue-loader@^15.6.4:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
+vue-mouse-parallax@^0.9.2:
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/vue-mouse-parallax/-/vue-mouse-parallax-0.9.2.tgz#e52bde6c6264b87a209eef67c71dd94fe07015f6"
+
 vue-router@^3.0.1:
   version "3.0.2"
   resolved "http://registry.npm.taobao.org/vue-router/download/vue-router-3.0.2.tgz#dedc67afe6c4e2bc25682c8b1c2a8c0d7c7e56be"

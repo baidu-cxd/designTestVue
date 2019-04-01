@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-link to="/zhijianyun">工业质检云动画原型</router-link> 
   </div>
 </template>
 
@@ -16,3 +15,21 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus">
+.home
+  a
+    color #000
+    text-align center
+    margin 40px auto
+    width  200px
+    display block
+    text-decoration none
+    padding 40px
+    transition .2s background-color ease-in-out .2s, .2s color ease-in-out
+    &:hover
+      background-color #000
+      color #fff
+  
+</style>
+
