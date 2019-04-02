@@ -50,7 +50,13 @@
             <div class="module" @click="toggleModule()" v-if="this.$store.state.module">
                 <div class="module-body-content">
                   <div class="module-body">
-                      <div class="module-body-head">设备管理</div>
+                      <div class="module-body-head">
+                          设备管理
+                          <div class="close">
+                              <img src="@/assets/zhijian/close1.svg" alt="">
+                              <img src="@/assets/zhijian/close-2.svg" alt="" class="close-2">
+                          </div>
+                      </div>
                       <p>设备参数</p>
                       <p class="week">包大小：23.28m</p>
                       <p class="week">兼容性：4.0+</p>
@@ -100,6 +106,24 @@
       line-height 80px
       text-align center
       margin-bottom 24px
+      position relative
+      .close
+        width 24px
+        height 24px
+        position absolute
+        right 24px
+        top 28px
+        &:hover
+          cursor pointer
+          img.close-2
+            transform rotate(45deg)
+        img 
+          width 100%
+          position absolute
+          top 0
+          right 0
+          transition .2s all ease-in-out
+          
     p
       font-size 14px
       color #000

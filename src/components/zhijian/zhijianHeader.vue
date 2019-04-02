@@ -10,12 +10,33 @@
              <router-link to="/zhijianyun/set"><p>设备管理</p></router-link>
              <router-link to="/zhijianyun/user"><p>用户管理</p></router-link>
          </nav>
+         <div class="user">
+           <div class="user-face"><img src="@/assets/zhijian/user.png" alt=""></div>
+           <p class="user-name">企业账号</p>
+         </div>
       </router-link>
     </div>
 </template>
 
 <style lang="stylus">
 .zhijian-header
+  .user
+    float right
+    height 70px
+    p
+      color #ffffff
+      line-height 70px
+      font-size 14px
+      float right
+      margin 0
+    .user-face
+      width 40px
+      height 40px
+      margin 14px 32px 14px 12px
+      float right
+      border-radius 100px
+      img 
+        width 100%
   width 100%
   position fixed
   top 0
