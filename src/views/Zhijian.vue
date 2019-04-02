@@ -43,10 +43,97 @@
             </nav>
             <p>© 2019 Baidu 使用百度前必读    增值电信业务经营许可证：B1.B2-20100266    京ICP证030173号    隐私政策</p>
         </div>
+
+        <!-- 弹窗 -->
+
+        <transition name="fade-module">
+            <div class="module" @click="toggleModule()" v-if="this.$store.state.module">
+                <div class="module-body-content">
+                  <div class="module-body">
+                      <div class="module-body-head">设备管理</div>
+                      <p>设备参数</p>
+                      <p class="week">包大小：23.28m</p>
+                      <p class="week">兼容性：4.0+</p>
+                      <div class="buttom">立即安装</div>
+                  </div>
+                </div>
+                <div class="module-bg"></div>
+            </div>
+        </transition>
+        
+
     </div>
 </template>
 
 <style lang="stylus">
+
+// 弹窗
+
+.zhi-jian .module
+  position fixed
+  top 0
+  left 0
+  right 0
+  bottom 0
+  z-index 1000
+  .module-body-content
+    width 100%
+    height 100%
+    z-index 2
+    position relative
+  .module-body
+    width 640px
+    min-height 340px
+    background-color #ffffff
+    box-shadow 0 2px 10px rgba(0,0,0,.1)
+    position absolute
+    left 50%
+    top 50%
+    transform translate(-50%,-50%)
+    z-index 2
+    .module-body-head
+      width 100%
+      height 80px
+      background-color #2E36E6
+      font-size 16px
+      color #fff
+      line-height 80px
+      text-align center
+      margin-bottom 24px
+    p
+      font-size 14px
+      color #000
+      opacity 1
+      line-height 26px
+      margin 12px 48px
+      &.week
+        opacity .4
+    .buttom
+      min-width 80px
+      height 40px
+      line-height 40px
+      background-color #2E36E6
+      color #ffffff
+      font-size 14px
+      transition .2s all ease-in-out
+      margin  48px auto
+      padding 0 24px  
+      text-align center 
+      width 140px
+      &:hover
+        background-color #000
+        cursor pointer
+  .module-bg
+    z-index 1
+    background-color rgba(0,0,0,.4)
+    width 100%
+    height 100%
+    position absolute
+    top 0
+    left 0
+
+
+
 body
   background-color #DEDEDE
 .zhi-jian
@@ -98,6 +185,26 @@ body
     text-align center
 
 // 动画
+
+.fade-module-enter-active, .fade-module-leave-active
+  transition .4s all ease-in-out
+  .module-bg
+    transition .4s all ease-in-out
+  .module-body-content
+    transition .2s all ease-in-out
+.fade-module-enter-to, .fade-module-leave
+  .module-bg
+    opacity 1
+  .module-body-content
+    transform translateY(0)
+    opacity 1
+.fade-module-enter, .fade-module-leave-to
+  .module-bg
+    opacity 0
+  .module-body-content
+    transform translateY(40px)
+    opacity 0
+
 .fade-right-enter-active, .fade-right-leave-active
   transition .6s all ease-in-out
 .fade-right-enter-to, .fade-right-leave
@@ -183,6 +290,9 @@ export default {
           } else {
               return false
           }
+      },
+      toggleModule() {
+          this.$store.state.module = !this.$store.state.module
       }
     }
 }
