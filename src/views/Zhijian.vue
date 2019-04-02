@@ -36,6 +36,8 @@
   right 0
   height 100%
   background-color #f1f1f1
+  transform translateX(100%)
+  animation left-in .8s ease-in-out forwards
   transition .8 all ease-in-out
   z-index 2
 .footer
@@ -65,6 +67,13 @@
   transform translateX(100%)
 .fade-right-enter-to, fade-right-leave
   transform translateX(0)
+
+@keyframes left-in
+  0%
+    transform translateX(100%)
+  100%
+    transform translateX(0)  
+ 
 </style>
 
 <script>

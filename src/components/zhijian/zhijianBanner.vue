@@ -1,16 +1,32 @@
 <template>
-    <div class="zhijian-banner">
+    <parallax-container class="zhijian-banner">
         <div class="banner-content">
-            <img class="banner" :src="this.bannerSrc" alt="">
-            <img class="banner-loader" src="@/assets/zhijian/动画文件2.gif" alt="" style="display:none;">
-            <div class="circle" id="circle-inner"><img src="@/assets/zhijian/line.svg" alt=""></div>
-            <div class="circle" id="circle-outer"><img src="@/assets/zhijian/line2.svg" alt=""></div>
-            <div class="circle" id="circle-tri"><div class="tri"></div></div>
-            <div class="block-content">
-              <div class="block block-1"></div>
-              <div class="block block-2"></div>
+            <!-- 主图形 -->
+            <div class="banner-content-img">
+            <parallax-element :parallaxStrength="40" :type="'rotation'">
+              <img class="banner" :src="this.bannerSrc" alt="">
+              <img class="banner-loader" src="@/assets/zhijian/动画文件2.gif" alt="" style="display:none;">
+            </parallax-element>
             </div>
+            <!-- 两个方块 -->
+            <div class="block-content">
+              <parallax-element :parallaxStrength="-15" :type="'translation'">
+              <div class="block block-1"></div>
+              </parallax-element>
+              <parallax-element :parallaxStrength="25" :type="'translation'">
+              <div class="block block-2"></div>
+              </parallax-element>
+            </div>
+            <!-- 两个圈 -->
+            <parallax-element class="text-container" :parallaxStrength="10" :type="'depth'">
+              <div class="circle" id="circle-inner"><img src="@/assets/zhijian/line.svg" alt=""></div>
+            </parallax-element>
+            <parallax-element class="text-container" :parallaxStrength="-20" :type="'depth'">
+              <div class="circle" id="circle-outer"><img src="@/assets/zhijian/line2.svg" alt=""></div>
+            </parallax-element>
+            <div class="circle" id="circle-tri"><div class="tri"></div></div>
         </div>
+        <!-- 背景 -->
         <div class="bg-grid">
             <div class="dot dot-1"></div>
             <div class="dot dot-2"></div>
@@ -19,7 +35,7 @@
             <div class="num num-2">{{number[2]}}</div>
             <div class="num num-3">{{number[3]}}</div>
         </div>
-    </div>
+    </parallax-container>
 </template>
 
 <script>
@@ -27,14 +43,18 @@ export default {
     data(){
         return {
             number: [],
-            bannerSrc: require('@/assets/zhijian/动画文件.gif')
+            bannerSrc: ''
         }
     },
     mounted() {
     setTimeout(()=>{this.returnNumber()},10);
-    setTimeout(()=>{this.changeBanner()},1200);
+    setTimeout(()=>{this.showBanner()},400);
+    setTimeout(()=>{this.changeBanner()},1600);
     },
     methods: {
+        showBanner() {
+            this.bannerSrc = require('@/assets/zhijian/动画文件.gif')
+        },
         changeBanner() {
             this.bannerSrc = require('@/assets/zhijian/动画文件2.gif')
         },
@@ -46,7 +66,7 @@ export default {
             let k = (Math.floor(Math.random() * (max - min)) + min).toString(2)
             let l = (Math.floor(Math.random() * (max - min)) + min).toString(2)
             this.number = [i, j, k, l]
-            setTimeout(()=>{this.returnNumber()},200);
+            setTimeout(()=>{this.returnNumber()},100);
         }
     }
 }
@@ -54,6 +74,19 @@ export default {
 
 
 <style lang="stylus">
+.banner-content-img
+  z-index 100
+  width 100%
+  height 100%
+  position absolute
+  top 0
+  left 0
+.parallax-element
+  width 100%
+  height 100%
+  position absolute
+  top 0
+  left 0
 .zhijian-banner
   width 100%
   height 100%
@@ -73,25 +106,29 @@ export default {
       left 50% 
       transform translate(-50%, -50%)  
       position absolute  
-      z-index -1
+      z-index 1
       width 400px
       height 400px
     .block
       display block
       &.block-1
-        width 160px
-        height 160px
-        background-color #7278EF
+        width 140px
+        height 140px
+        background-color #ffffff
         position absolute
-        top 0
-        left 0
+        top 20px
+        left 20px
+        opacity 0
+        animation scale-in-2 .6s ease-in-out .8s forwards
       &.block-2
         width 220px
         height 220px
-        background-color #ffffff
+        background-color #7278ef
         position absolute
         bottom -10px
         right -20px
+        opacity 0
+        animation scale-in-2 .4s ease-in-out .85s forwards
     // 图片
     img.banner, .circle
       width 780px
@@ -101,6 +138,9 @@ export default {
       transform translate(-50%, -50%)
       img 
         width 100%
+    img.banner
+      z-index 100
+    // 圈圈
     .circle
       z-index -2
     .circle#circle-inner
@@ -108,13 +148,15 @@ export default {
       height 450px
       opacity .6
       img
-        animation rotate 40s linear infinite
+        opacity 0
+        animation rotate 40s linear infinite 1.6s, scale-in .8s ease-in-out .8s
     .circle#circle-outer
       width 600px
       height 600px
       opacity .4
       img
-        animation anti-rotate 160s linear infinite
+        opacity 0
+        animation anti-rotate 160s linear infinite 1.8s, scale-in 1s ease-in-out .8s
     .circle#circle-tri
       width 500px
       height 500px
@@ -123,8 +165,8 @@ export default {
         width 100%
         height 100%
         position relative
-        animation rotate 80s linear infinite
-        opacity .2
+        opacity 0
+        animation rotate 80s linear infinite 2.2s, scale-in 1s ease-in-out 1.2s
         &:before, &:after
           content ''
           width 0px
@@ -134,6 +176,7 @@ export default {
           border-bottom 20px solid #fff
           display block
           position absolute
+          opacity .2
         &:before
           top 0
           left 0
@@ -177,32 +220,69 @@ export default {
         font-size 12px
         left 120px
         top 180px
+        animation right-num-in 1.2s linear forwards
       &.num-1
         left 50%
         top 80%
         font-size 24px
         opacity .1
+        animation left-num-in 1.2s linear forwards
       &.num-2
         right 40%
         top 120px
+        animation left-num-in 1.2s linear forwards
       &.num-3
         left 49%
         top 85%
         font-size 12px
         opacity .4
+        animation right-num-in 1.2s linear forwards
 // 动画
 
 @keyframes rotate 
   0%
     transform rotate(0)
+    opacity 1
   100%
     transform rotate(360deg)
+    opacity 1
 
 @keyframes anti-rotate 
   0%
     transform rotate(0)
+    opacity 1
   100%
     transform rotate(-360deg)
+    opacity 1
 
+@keyframes scale-in
+  0%
+    transform scale(1.2) 
+    opacity 0
+  100%
+    transform scale(1) 
+    opacity 1
+
+@keyframes scale-in-2
+  0%
+    transform scale(0) 
+    opacity 0
+  100%
+    transform scale(1) 
+    opacity 1
+
+@keyframes left-num-in
+  0%
+    transform translateX(40px)
+    opacity 0
+  100%
+    transform translateX(0px)
+
+@keyframes right-num-in
+  0%
+    transform translateX(-40px)
+    opacity 0
+  100%
+    transform translateX(0px)
 </style>
 
