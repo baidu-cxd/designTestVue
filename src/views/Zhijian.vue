@@ -1,18 +1,33 @@
 <template>
     <div class="zhi-jian">
+
+        <!-- 顶部导航栏 -->
+        <transition name = "fade-header">
+          <zhijianHeader v-if="resolvePath() !== 'path-zhijianyun'"/>
+        </transition>
+
         <!-- 右侧背景色块 -->
         <transition name="fade-right">
           <div class="zhi-jian-main-bg" v-show="resolvePath() === 'path-zhijianyun'"></div>
         </transition>
+
         <!-- 左侧动画组件 -->
-        <transition name="fade-left">
-            <zhijianBanner/>
+        <transition name="fade-delay">
+            <zhijianBanner  v-if="resolvePath() === 'path-zhijianyun'"/>
         </transition>
+
+        <!-- 页面详情容器 -->
+        <div class="page-content" v-if="resolvePath() !== 'path-zhijianyun'">
+          <router-view/>
+        </div>
+
         <!-- 账号密码模块 -->
-        <transition name="fade-left" v-show="resolvePath() === 'path-zhijianyun'">
+        <transition name="fade-log">
+          <div class="log-in-content"  v-show="resolvePath() === 'path-zhijianyun'">
             <logIn/>
+          </div>
         </transition>
-        <router-view/>
+        
         <!-- footer -->
         <div class="footer">
             <nav>
@@ -30,14 +45,22 @@
   height 100%
   background-color #DEDEDE
   position relative
+.page-content
+  width 100%
+  min-height 100%
+.log-in-content
+  position absolute
+  top 50%
+  left 75%
+  z-index 100
 .zhi-jian-main-bg
   position absolute
-  width 25%
+  width 100%
   right 0
   height 100%
   background-color #f1f1f1
-  transform translateX(100%)
-  animation left-in .8s ease-in-out forwards
+  transform translateX(75%)
+  animation left-in 1.2s ease-out
   transition .8 all ease-in-out
   z-index 2
 .footer
@@ -63,25 +86,55 @@
 // 动画
 .fade-right-enter-active, .fade-right-leave-active
   transition .6s all ease-in-out
+.fade-right-enter-to, .fade-right-leave
+  transform translateX(75%)
 .fade-right-enter, .fade-right-leave-to
-  transform translateX(100%)
-.fade-right-enter-to, fade-right-leave
-  transform translateX(0)
+  transform translateX(0%)
+  background-color #DEDEDE
+
+.fade-log-enter-active, .fade-log-leave-active
+  transition .2s all ease-in-out .2s
+.fade-log-enter-to, .fade-log-leave
+  transform translateY(0)
+  opacity 1
+.fade-log-enter, .fade-log-leave-to
+  opacity 0
+  transform translateX(60px)
+
+.fade-delay-enter-active
+  transition .4s all ease-in-out 0s
+.fade-delay-leave-active
+  transition .2s all ease-in-out .8s
+.fade-delay-enter-to, .fade-delay-leave
+  opacity 1
+.fade-delay-enter, .fade-delay-leave-to
+  opacity 0
+
+.fade-header-enter-active
+  transition .4s all ease-in-out .4s 
+.fade-header-leave-active
+  transition .4s all ease-in-out 
+.fade-header-enter-to, .fade-header-leave
+  transform translateY(0)
+.fade-header-enter, .fade-header-leave-to
+  transform translateY(-100%)
+
 
 @keyframes left-in
   0%
-    transform translateX(100%)
+    transform translateX(0)
   100%
-    transform translateX(0)  
+    transform translateX(75%)  
  
 </style>
 
 <script>
 import sideBar from '@/components/zhijian/sideBar.vue'
 import zhijianBanner from '@/components/zhijian/zhijianBanner.vue'
+import zhijianHeader from '@/components/zhijian/zhijianHeader.vue'
 import logIn from '@/components/zhijian/logIn.vue'
 export default {
-    components: {sideBar, zhijianBanner, logIn},
+    components: {sideBar, zhijianBanner, logIn, zhijianHeader},
     methods: {
       resolvePath() {
           const resolvedPath = 'path' + this.$route.fullPath.replace(/\//g,'-')

@@ -10,7 +10,7 @@
                 <img src="@/assets/zhijian/mima.svg" alt=""><input type="text" placeholder="请输入密码">
             </div>
         </div>
-        <div class="log-in">登 &nbsp 录</div>
+        <router-link to="/zhijianyun/main"><div class="log-in">登 &nbsp 录</div></router-link>
     </div>
 </template>
 
@@ -61,6 +61,8 @@
         position absolute
         left 12px
         top 12px
+  a
+    text-decoration none
   .log-in
     width 100%
     height 48px
@@ -74,6 +76,7 @@
     transition .2s all ease-in-out
     opacity 0
     animation down-in-2 .6s ease-in-out forwards .64s
+    text-decoration none
     &:hover
       background-color #2E36E6
       cursor pointer
