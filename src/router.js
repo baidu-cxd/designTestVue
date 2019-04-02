@@ -22,6 +22,14 @@ export default new Router({
         {
           path: 'main',
           name: 'zhijianyun-main',         
+        },
+        {
+          path: 'set',
+          name: 'zhijianyun-set',         
+        },
+        {
+          path: 'user',
+          name: 'zhijianyun-user',         
         }
       ]
     }

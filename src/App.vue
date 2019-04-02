@@ -7,16 +7,18 @@
 
 
 <style lang="stylus">
+body
+  overflow-x hidden
+  overflow-y scroll
 html, body, #app
-  font-family 'Avenir', Helvetica, Arial, sans-serif
+  font-family -apple-system, BlinkMacSystemFont,"SF Pro SC","SF Pro Text","Helvetica Neue",  Helvetica, "PingFang SC", Roboto, 'Arial','microsoft yahei ui',"Microsoft YaHei",SimSun, sans-serif
+  /*修改浏览器渲染字体效果*/ 
+  -moz-osx-font-smoothing grayscale
   -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale 
   width 100%
   height 100%
   margin 0
   padding 0
-  overflow-x hidden
-  background-color #DEDEDE
 </style>
 
 

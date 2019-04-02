@@ -92,14 +92,16 @@ export default {
   height 100%
   background-color #2E36E6
   position relative
+  top 0
+  left 0
   z-index 1
   overflow hidden
+
   // banner 前景
   .banner-content
     z-index 10
     width 60%
     height 100%
-    position relative
     // 方块
     .block-content
       top 50%
