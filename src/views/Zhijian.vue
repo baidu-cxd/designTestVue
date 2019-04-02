@@ -24,7 +24,7 @@
         <!-- 页面详情容器 -->
         <transition name="fade-page">
           <div class="page-content" v-if="resolvePath() !== 'path-zhijianyun'">
-               <pageDetail :hasSidebar='hasSidebar()'/>
+               <pageDetail :hasSidebar='hasSidebar()' :nowPath='resolvePath()'/>
           </div>
         </transition>
 
@@ -47,6 +47,8 @@
 </template>
 
 <style lang="stylus">
+body
+  background-color #DEDEDE
 .zhi-jian
   width 100%
   height 100%
@@ -133,7 +135,7 @@
   transform translateY(-100%)
 
 .fade-sidebar-enter-active
-  transition .4s all ease-in-out .4s 
+  transition .4s all ease-in-out .2s 
 .fade-sidebar-leave-active
   transition .4s all ease-in-out 
 .fade-sidebar-enter-to, .fade-sidebar-leave
@@ -142,9 +144,9 @@
   transform translateX(-100%)
 
 .fade-page-enter-active
-  transition .4s all ease-in-out .4s 
+  transition .4s all ease-in-out .5s 
 .fade-page-leave-active
-  transition .4s all ease-in-out .2s 
+  transition .2s all ease-in-out 0s 
 .fade-page-enter-to, .fade-page-leave
   transform translateY(0)
   opacity 1

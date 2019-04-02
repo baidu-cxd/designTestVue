@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>zhongduan</title>
+    <desc>Created with Sketch.</desc>
+    <g id="zhongduan" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" stroke="#FFFFFF" stroke-width="2" x="4" y="4" width="16" height="16"></rect>
+        <rect id="Rectangle" stroke="#FFFFFF" stroke-width="2" x="6" y="8" width="12" height="1"></rect>
+        <polyline id="Shape" stroke="#FFFFFF" stroke-width="2" transform="translate(11.000000, 14.000000) rotate(-45.000000) translate(-11.000000, -14.000000) " points="13 12 13 16 9 16"></polyline>
+    </g>
+</svg>
