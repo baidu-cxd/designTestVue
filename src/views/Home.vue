@@ -1,6 +1,8 @@
 <template>
   <div class="home">
     <router-link to="/zhijianyun">工业质检云动画原型</router-link> 
+    <router-link to="/doc">文档详情页原型</router-link> 
+    <router-link to="/acu-index">新版首页</router-link> 
   </div>
 </template>
 
