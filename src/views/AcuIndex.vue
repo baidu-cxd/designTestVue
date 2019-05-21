@@ -54,16 +54,20 @@ export default {
     },
     methods: {
         resolveClass(){
-            if (this.scrollTop > 300){  // 进入四大平台的平滑
-                return 'not-top section-2 section-2-all'
-            } 
-            else if (this.scrollTop > 100){  // 进入四大平台的平滑
-                return 'not-top section-2'
-            } 
-            else if (this.scrollTop > 60){  // 顶部导航栏状态动画
-                return 'not-top'
+            let className = ''
+            if (this.scrollTop > 550) {
+                className += ' section-3' //进入产品页板块
             }
-            return 'top'
+            if (this.scrollTop > 300){  // 进入四大平台的平滑
+                className += ' section-2-all' //进入产品页板块
+            } 
+            if (this.scrollTop > 100){  // 进入四大平台的平滑
+                className += ' section-2' //进入产品页板块
+            } 
+            if (this.scrollTop > 60){  // 顶部导航栏状态动画
+                className += ' not-top' //进入产品页板块
+            }
+            return className
         },
         handleScroll(e){
             this.scrollTop = window.pageYOffset 

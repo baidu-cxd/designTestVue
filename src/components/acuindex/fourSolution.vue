@@ -160,17 +160,17 @@ export default {
     width 480px
     height 360px
     float left
-    margin 50px 0
+    margin 35px 0
     opacity 0
     transition .4s all ease-in-out 
-    transform translateY(40px) scale(.8)
+    transform translateY(40px) scale(1.1)
     img 
       width 100%
   .text-content
     margin-left 560px
     min-height 360px 
     opacity 0
-    transition .4s all ease-in-out .005s
+    transition .4s all ease-in-out 
     transform translateY(40px)
     h3
       margin 80px 0 10px 0
