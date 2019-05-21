@@ -13,7 +13,7 @@
         <!--首页 解决方案 -->
         <solution/>
         <!--首页 案例 -->
-        <example/>
+        <example :scroll="scrollTop"/>
         <!--首页 数据 -->
         <dataShow/>
         <!--首页 认证 -->
