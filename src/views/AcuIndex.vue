@@ -55,7 +55,13 @@ export default {
     methods: {
         resolveClass(){
             let className = ''
-            if (this.scrollTop > 550) {
+            if (this.scrollTop > 1800) {
+                className += ' section-4-all' //进入解决方案板块
+            }
+            if (this.scrollTop > 1600) {
+                className += ' section-4' //进入解决方案板块
+            }
+            if (this.scrollTop > 600) {
                 className += ' section-3' //进入产品页板块
             }
             if (this.scrollTop > 300){  // 进入四大平台的平滑
