@@ -3,10 +3,10 @@
         <h2>丰富可靠的智能云产品</h2>
         <!-- 行 -->
         <div v-for="(raw,j) in products" :key="j" class="details-product">
-         <div class="products-content">
+         <div class="products-content" :class="'line'+j">
           <div class="product-content" 
             v-for="(product,i) in raw" :key="product.name"
-            :class="recent.col === i ? 'recent':''" @click="changeRecent(i,j)">
+            :class="[recent.col === i ? 'recent':'','col'+i]" @click="changeRecent(i,j)">
             <div class="img-content" :class="recent.raw === j && recent.col === i ? 'open':''">
               <img :src="product.img" alt="">
             </div>
@@ -333,11 +333,23 @@ export default {
     transform translateX(0)
 
 .section-3 .product
-  h2, .details-product
+  h2
+    opacity 1
+    transform translateY(0px)
+.section-3-line-1 .product
+  .products-content.line0
+    opacity 1
+    transform translateY(0px)
+.section-3-detail-1 .product
+  .details
+    opacity 1
+    transform translateY(0px)
+.section-3-line-2 .product
+  .products-content.line1
     opacity 1
     transform translateY(0px)
 .product
-  h2, .details-product
+  h2, .products-content, .details
     opacity 0
     transform translateY(20px)
     transition .4s all ease-in-out

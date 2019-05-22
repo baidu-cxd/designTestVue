@@ -235,6 +235,12 @@ export default {
       height 30px
       .item
         float left
+        &:hover
+          cursor pointer
+          .icon img 
+            opacity 1
+          p.text
+            color darken(#454A5B,100%)
         .icon
           width 16px
           height 16px
@@ -242,6 +248,8 @@ export default {
           margin 7px 0
           img 
             width 100%
+            transition .2s all ease-in-out
+            opacity .6
         p.text
            float left
            font-size 16px
@@ -249,5 +257,6 @@ export default {
            font-weight 500
            color  #454A5B
            margin 0 50px 0 10px
+           transition .2s all ease-in-out
 
 </style>

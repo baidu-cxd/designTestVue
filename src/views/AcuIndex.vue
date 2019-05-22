@@ -55,13 +55,31 @@ export default {
     methods: {
         resolveClass(){
             let className = ''
+            if (this.scrollTop > 2900) {
+                className += ' section-5-all-2' //进入客户案例板块
+            }
+            if (this.scrollTop > 2700) {
+                className += ' section-5-all' //进入客户案例板块
+            }
+            if (this.scrollTop > 2400) {
+                className += ' section-5' //进入客户案例板块
+            }
             if (this.scrollTop > 1800) {
                 className += ' section-4-all' //进入解决方案板块
             }
             if (this.scrollTop > 1600) {
                 className += ' section-4' //进入解决方案板块
             }
-            if (this.scrollTop > 600) {
+            if (this.scrollTop > 1300) {
+                className += ' section-3-line-2' //进入产品页板块
+            }
+            if (this.scrollTop > 900) {
+                className += ' section-3-detail-1' //进入产品页板块
+            }
+            if (this.scrollTop > 800) {
+                className += ' section-3-line-1' //进入产品页板块
+            }
+            if (this.scrollTop > 650) {
                 className += ' section-3' //进入产品页板块
             }
             if (this.scrollTop > 300){  // 进入四大平台的平滑

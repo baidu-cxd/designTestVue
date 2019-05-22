@@ -65,7 +65,8 @@
       opacity 1
 .solution
   width 100%
-  background-color #505D73  
+  // background-color #505D73  
+  background linear-gradient(#313957, #505B7B)
   overflow hidden
   position relative
   padding-bottom 80px
@@ -121,7 +122,7 @@
     position relative
     opacity 0
     transition .4s all ease-in-out 
-    transform scale(1.02)
+    transform scale(1.05)
     margin-bottom 40px
     .card
       position absolute
