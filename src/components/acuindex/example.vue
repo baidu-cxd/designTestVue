@@ -566,9 +566,12 @@ export default {
         setTimeout(()=>{this.animateIt('i5')},250);
         setTimeout(()=>{this.animateIt('i6')},50);
       }
-      if ( 2500 < this.scroll ) {
-        return "transform: translate(" + x +"px, " + y + "px)"
+      if ( 2500 < this.scroll &&  3500 > this.scroll) {
+        return "transform: translate(" + x +"px, " + y + "px); opacity:" + (1 - (this.scroll - 3250) * 0.004) + ";"
       } 
+      if (3499 < this.scroll) {
+        return "opacity:0;"
+      }
     },
     animateIt(elementId) {
         var elem = document.getElementById(elementId)

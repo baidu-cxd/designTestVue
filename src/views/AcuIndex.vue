@@ -15,7 +15,7 @@
         <!--首页 案例 -->
         <example :scroll="scrollTop"/>
         <!--首页 数据 -->
-        <dataShow/>
+        <dataShow :scroll="scrollTop"/>
         <!--首页 认证 -->
         <authentication/>
         <!--首页 合作与生态-->
@@ -55,16 +55,19 @@ export default {
     methods: {
         resolveClass(){
             let className = ''
+            if (this.scrollTop > 3200) {
+                className += 'section-6' //进入数据
+            }
             if (this.scrollTop > 2900) {
                 className += ' section-5-all-2' //进入客户案例板块
             }
             if (this.scrollTop > 2700) {
                 className += ' section-5-all' //进入客户案例板块
             }
-            if (this.scrollTop > 2400) {
+            if (this.scrollTop > 2500) {
                 className += ' section-5' //进入客户案例板块
             }
-            if (this.scrollTop > 1800) {
+            if (this.scrollTop > 1900) {
                 className += ' section-4-all' //进入解决方案板块
             }
             if (this.scrollTop > 1600) {

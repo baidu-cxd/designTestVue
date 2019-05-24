@@ -122,7 +122,7 @@
     position relative
     opacity 0
     transition .4s all ease-in-out 
-    transform scale(1.05)
+    transform scale(1.03)
     margin-bottom 40px
     .card
       position absolute

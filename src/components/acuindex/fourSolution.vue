@@ -163,7 +163,7 @@ export default {
     margin 35px 0
     opacity 0
     transition .4s all ease-in-out 
-    transform translateY(40px) scale(1.1)
+    transform translateY(40px) scale(1.2)
     img 
       width 100%
   .text-content
