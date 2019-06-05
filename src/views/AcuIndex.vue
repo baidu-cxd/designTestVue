@@ -1,7 +1,7 @@
 <template>
     <div class="acu-index" :class="resolveClass()">
         <!--顶部导航-->
-        <acuHeader/>
+        <acuHeader :scroll="scrollTop" :direction='direction'/>
         <!--首页 banner -->
         <acuBanner/>
         <!--首页 营销位 -->
@@ -19,9 +19,9 @@
         <!--首页 认证 -->
         <authentication/>
         <!--首页 合作与生态-->
-        <ecology/>
+        <ecology :scroll="scrollTop"/>
         <!--首页 新人体验站-->
-        <experience/>
+        <!-- experience/ -->
         <!--首页 页脚-->
         <acuFooter/>
     </div>
@@ -49,14 +49,21 @@ export default {
     },
     data(){
         return {
-            scrollTop: 0
+            scrollTop: 0,
+            direction: 'down'
         }
     },
     methods: {
         resolveClass(){
             let className = ''
+            if (this.scrollTop > 3600) {
+                className += ' section-7-all' //进入鉴权-完整
+            }
+            if (this.scrollTop > 3400) {
+                className += ' section-7' //进入建泉
+            }
             if (this.scrollTop > 3200) {
-                className += 'section-6' //进入数据
+                className += ' section-6' //进入数据
             }
             if (this.scrollTop > 2900) {
                 className += ' section-5-all-2' //进入客户案例板块
@@ -67,22 +74,22 @@ export default {
             if (this.scrollTop > 2500) {
                 className += ' section-5' //进入客户案例板块
             }
-            if (this.scrollTop > 1900) {
+            if (this.scrollTop > 2000) {
                 className += ' section-4-all' //进入解决方案板块
             }
-            if (this.scrollTop > 1600) {
+            if (this.scrollTop > 1700) {
                 className += ' section-4' //进入解决方案板块
             }
             if (this.scrollTop > 1300) {
                 className += ' section-3-line-2' //进入产品页板块
             }
-            if (this.scrollTop > 900) {
+            if (this.scrollTop > 1000) {
                 className += ' section-3-detail-1' //进入产品页板块
             }
-            if (this.scrollTop > 800) {
+            if (this.scrollTop > 900) {
                 className += ' section-3-line-1' //进入产品页板块
             }
-            if (this.scrollTop > 650) {
+            if (this.scrollTop > 700) {
                 className += ' section-3' //进入产品页板块
             }
             if (this.scrollTop > 300){  // 进入四大平台的平滑
@@ -97,10 +104,17 @@ export default {
             return className
         },
         handleScroll(e){
-            this.scrollTop = window.pageYOffset 
+            const scroll =  window.pageYOffset 
                             || document.documentElement.scrollTop 
                             || document.body.scrollTop
-            console.log(this.scrollTop)
+            console.log(scroll)  
+            if (scroll - this.scrollTop < 0) {
+                this.direction = 'up'
+            } else {
+                this.direction = 'down'
+            }
+            this.delta = scroll - this.scrollTop
+            this.scrollTop = scroll
         }
     }
 }
