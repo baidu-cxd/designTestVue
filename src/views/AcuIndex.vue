@@ -56,6 +56,9 @@ export default {
     methods: {
         resolveClass(){
             let className = ''
+            if (this.scrollTop > 3900) {
+                className += ' section-8' //进入鉴权-完整
+            }
             if (this.scrollTop > 3600) {
                 className += ' section-7-all' //进入鉴权-完整
             }

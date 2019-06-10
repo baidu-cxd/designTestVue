@@ -181,12 +181,12 @@ export default {
       &:hover 
         .text-content
           opacity 1
-          transform translateX(-50%)translateY(150px)
+          transform translateX(-50%)translateY(120px)
       .text-content
         position absolute
         top 0px
         left 50%
-        transform translateX(-50%)translateY(160px)
+        transform translateX(-50%)translateY(140px)
         transition .2s all ease-in-out
         width 180px
         height 90px

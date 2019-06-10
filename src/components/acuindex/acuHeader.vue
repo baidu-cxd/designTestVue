@@ -49,8 +49,8 @@
          <div class="content">
             <p :class="isCurrent(0,1100)">四大平台解决方案</p>
             <p :class="isCurrent(1100,2140)">产品介绍</p>
-            <p :class="isCurrent(2140,2900)">解决方案</p>
-            <p :class="isCurrent(2900,3700)">客户案例</p>
+            <p :class="isCurrent(2140,2800)">解决方案</p>
+            <p :class="isCurrent(2800,3700)">客户案例</p>
             <p :class="isCurrent(3700,1000000)">认证展示</p>
             <div class="under-line" 
               :style="'left:' + left[0] + 'px; right:' + left[1] +'px'">
@@ -73,7 +73,7 @@ export default {
       if (this.scroll>3700){
         return [1035,90]
       }
-      else if (this.scroll>2900){
+      else if (this.scroll>2800){
         return [800,325]
       }
       else if (this.scroll>2140){

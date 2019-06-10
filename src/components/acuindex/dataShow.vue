@@ -2,6 +2,7 @@
   <div class="data-show">
       <div class="bg-img">
         <img src="@/assets/acu-index/data-bg@2x.png" alt="" :style="resolveStyle()">
+        {{watch}}
       </div>
       <div class="text-wrp">
         <!-- 第一组数据 -->
@@ -164,10 +165,8 @@ export default {
       numbers4: [0,'×',0,0],
     } 
   },
-  mounted() {
-  },
-  methods: {
-    resolveStyle(){
+  computed: {
+    watch() {
       if (this.scroll > 3200) {
        this.numbers1= [5,7,9,',',3,0,0,',',2,8,6]
        this.numbers2= [9,9,'.',9,9,9,9,9,9,'%']
@@ -179,10 +178,16 @@ export default {
        this.numbers3= [0, 'v', 0]
        this.numbers4= [0,'×',0,0]        
       }
+    }
+  },
+  methods: {
+    resolveStyle(){
       if (this.scroll > 3100 && this.scroll < 4000) {
-        const px = (this.scroll - 3100) * 0.4
+        const px = (this.scroll - 3100) * 0.25
         return "transform: translateY(" + px +"px)"
-      } 
+      } else {
+        return "transform: translateY(0px)"
+      }
     },
     resolveStyleNumber(i) {
       if (i ===0) {

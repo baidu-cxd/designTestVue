@@ -75,8 +75,9 @@
         z-index 2
         margin 0
       &:hover
+        transform translateY(-5px)
         .button-bg
-          transform scale(1.08)
+          // transform scale(1.08)
         cursor pointer
         // color #2468f2
         // border 1px solid #2468f2
