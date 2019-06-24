@@ -46,7 +46,6 @@ export default {
       if(this.scroll>3900){
         if (this.title1.length === 0) {
           this.writeTitle1(this.title1.length)
-          setTimeout(()=>{this.writeTitle2(this.title2.length)},2400)
         }
         return ''
       }
@@ -57,17 +56,25 @@ export default {
   },
   methods:{
     writeTitle1(i) {
-      if (i < this.title1All.length && this.title1.length == i){
+      if (i === 5) {
         this.title1 += this.title1All[i]
-        setTimeout(()=>{this.writeTitle1(i+1)},100)
+        setTimeout(()=>{this.writeTitle1(i+1)}, 400)
+      } else if (i < this.title1All.length && this.title1.length == i && i !== 5){
+        this.title1 += this.title1All[i]
+        setTimeout(()=>{this.writeTitle1(i+1)}, 80)
       } else if (i = this.title1All.length) {
-        setTimeout(()=>{this.typeWriter = 2},800)
+        setTimeout(()=>{this.typeWriter = 2}, 800)
+        setTimeout(()=>{this.writeTitle2(this.title2.length)}, 800)
       }
     },
     writeTitle2(i) {
-      if (i < this.title2All.length && this.title2.length == i){
+      if (i === 2) {
         this.title2 += this.title2All[i]
-        setTimeout(()=>{this.writeTitle2(i+1)},160)
+        setTimeout(()=>{this.writeTitle2(i+1)}, 400)
+      }
+      if (i < this.title2All.length && this.title2.length == i && i !== 2){
+        this.title2 += this.title2All[i]
+        setTimeout(()=>{this.writeTitle2(i+1)}, 160)
       }
     }
   }

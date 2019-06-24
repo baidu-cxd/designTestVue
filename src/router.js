@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Zhijian from './views/Zhijian.vue'
 import Doc from './views/Doc.vue'
 import AcuIndex from './views/AcuIndex.vue'
+import Cylm from './views/Cylm.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -24,6 +25,11 @@ export default new Router({
       path: '/acu-index',
       name: 'acu-index',
       component: AcuIndex
+    },
+    {
+      path: '/cylm',
+      name: 'chanyelianmeng',
+      component: Cylm
     },
     {
       path: '/zhijianyun',
