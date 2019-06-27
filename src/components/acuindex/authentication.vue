@@ -11,8 +11,8 @@
            </div>
        </div>
        <div class="content" @mouseenter="preNext = true" @mouseleave="preNext = false">
-         <div class="content-inner" :style="resolveStyle()">
-           <div v-for="(item,i) in items" :key="i" class="item">
+         <div class="content-inner">
+           <div v-for="(item,i) in items" :key="i" class="item" :style="resolveStyle(items.length, i)">
              <div class="img-content">
                <img :src="item.img" alt="">
              </div>
@@ -83,8 +83,11 @@ export default {
     }
   },
   methods: {
-    resolveStyle(){
+    resolveStyle(total, i){
       const px = 190 * this.now
+      if (this.now - i > 1) {
+        return "transform: translateX(" + px + "px); display: none;"
+      }
       return "transform: translateX(" + px + "px)"
     },
     togglePreNext(){
@@ -176,6 +179,8 @@ export default {
       background-color #ffffff
       float left 
       position relative
+      transition .4s all ease-in-out
+      z-index 2
       &:hover 
         cursor pointer
       &:hover 

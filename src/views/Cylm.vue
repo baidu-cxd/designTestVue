@@ -8,13 +8,13 @@
         <div class="section-2">
             <div class="card-content">
                 <div class="line-1">
-                    <div class="card-inner" style="transition-delay:200ms;">
+                    <div class="card-inner" style="transition-delay:100ms;">
                         <img src="@/assets/cylm/card1@2x.png" alt="">
                     </div>
-                    <div class="card-inner" style="transition-delay:400ms;">
+                    <div class="card-inner" style="transition-delay:240ms;">
                         <img src="@/assets/cylm/card2@2x.png" alt="">
                     </div>
-                    <div class="card-inner" style="transition-delay:600ms;">
+                    <div class="card-inner" style="transition-delay:300ms;">
                         <img src="@/assets/cylm/card3@2x.png" alt="">
                     </div>
                 </div>
@@ -22,10 +22,10 @@
                     <div class="card-inner" style="transition-delay:0ms;">
                         <img src="@/assets/cylm/card4@2x.png" alt="">
                     </div>
-                    <div class="card-inner" style="transition-delay:200ms;">
+                    <div class="card-inner" style="transition-delay:180ms;">
                         <img src="@/assets/cylm/card5@2x.png" alt="">
                     </div>
-                    <div class="card-inner" style="transition-delay:400ms;">
+                    <div class="card-inner" style="transition-delay:280ms;">
                         <img src="@/assets/cylm/card6@2x.png" alt="">
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="card-content">
-                    <div class="card" style="transition-delay:600ms;">
+                    <div class="card" style="transition-delay:500ms;">
                          <img src="@/assets/cylm/section-3-3.png" alt="">
                     </div>
                 </div>
@@ -76,10 +76,10 @@
                         <p class="text" style="transition-delay: 400ms;">新应用</p>
                     </div>
                     <div class="icon-circle">
-                        <div class="icon-img" style="transition-delay: 400ms;">
+                        <div class="icon-img" style="transition-delay: 300ms;">
                             <img src="@/assets/cylm/section-4-icon-3.png" alt="">
                         </div>
-                        <p class="text" style="transition-delay: 600ms;">新业态</p>
+                        <p class="text" style="transition-delay: 500ms;">新业态</p>
                     </div>
                 </div>
             </div>
@@ -112,7 +112,7 @@
                     <div class="card" style="transition-delay: 400ms;">
                         <img  class="display" src="@/assets/cylm/img-3.png" alt="">
                     </div>
-                    <div class="card" style="transition-delay: 600ms;">
+                    <div class="card" style="transition-delay: 500ms;">
                         <img  class="display" src="@/assets/cylm/img-4.png" alt="">
                     </div>
                     <div class="card first line-2" style="transition-delay: 200ms;">
@@ -121,10 +121,10 @@
                     <div class="card line-2" style="transition-delay: 400ms;">
                         <img  class="display" src="@/assets/cylm/img-6.png" alt="">
                     </div>
-                    <div class="card line-2" style="transition-delay: 600ms;">
+                    <div class="card line-2" style="transition-delay: 500ms;">
                         <img  class="display" src="@/assets/cylm/img-7.png" alt="">
                     </div>
-                    <div class="card line-2" style="transition-delay: 800ms;">
+                    <div class="card line-2" style="transition-delay: 550ms;">
                         <img  class="display" src="@/assets/cylm/img-8.png" alt="">
                     </div>
                 </div>
