@@ -12,19 +12,11 @@
           </div>
           <!-- 详细文字 -->
           <div class="text">
-            <div class="text-content line-1">
+            <div  v-for="(item, i) in items[recent].detail" 
+              :class="['text-content', 'line-' + i]"
+              :key="i">
               <transition name="fade-scroll">
-                <p :key="recent" class="line-1">{{items[recent].detail[0]}}</p>
-              </transition>
-            </div>
-            <div class="text-content line-2">
-              <transition name="fade-scroll">
-                <p :key="recent" class="line-1">{{items[recent].detail[1]}}</p>
-              </transition>
-            </div>
-            <div class="text-content line-3">
-              <transition name="fade-scroll">
-                <p :key="recent" class="line-1">{{items[recent].detail[2]}}</p>
+                <p :key="recent" class="line-1">{{item}}</p>
               </transition>
             </div>
           </div>

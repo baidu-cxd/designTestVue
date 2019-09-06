@@ -6,6 +6,8 @@ import Doc from './views/Doc.vue'
 import AcuIndex from './views/AcuIndex.vue'
 import Cylm from './views/Cylm.vue'
 import testJJFA from './views/testJJFA.vue'
+import Dxwj from './views/Dxwj.vue'
+import Product from './views/Product.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -41,6 +43,16 @@ export default new Router({
       path: '/testJJFB',
       name: 'chanyelianmeng',
       component: testJJFA
+    },
+    {
+      path: '/Product',
+      name: 'chanyelianmeng',
+      component: Product
+    },
+    {
+      path: '/dxwj',
+      name: 'diaochawenjuan',
+      component: Dxwj
     },
     {
       path: '/zhijianyun',
