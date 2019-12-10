@@ -29,7 +29,7 @@
           <img src="@/assets/acu-index/img-four-1.png" alt="">
         </div>
         <!-- 详细内容：文字 -->
-        <div class="text-content">
+        <div class="text-content-acu-index">
           <h3>百度 AI 智能云服务</h3>
           <p>
              百度天工是融合了百度ABC（AI、Big Data、Cloud）的“一站式、全托管”智能物联网平台。<br/>
@@ -83,7 +83,7 @@ export default {
 
 
 <style lang="stylus">
-.section-2
+.acu-index.section-2
   .for-solution 
     .tab-content 
       .tab-item
@@ -95,15 +95,15 @@ export default {
         opacity 1
       .recent
         transform scaleX(1)
-.section-2-all
+.acu-index.section-2-all
   .for-solution
     .img-content
       transform translateY(0) scale(1)
       opacity 1
-    .text-content
+    .text-content-acu-index
       transform translateY(0)
       opacity 1
-.for-solution
+.acu-index .for-solution
   width 1180px
   margin 0px auto 40px
   // tab 文字区域
@@ -166,7 +166,7 @@ export default {
     transform translateY(40px) scale(1.2)
     img 
       width 100%
-  .text-content
+  .text-content-acu-index
     margin-left 560px
     min-height 360px 
     opacity 0

@@ -39,7 +39,7 @@ $ease-soft = cubic-bezier(0.77, 0, 0.175, 1)
   &:hover
     cursor pointer
 // 调查问卷icon部分代码
-.diaochawenjuan.icon
+.diaochawenjuan .icon
   position relative
   top 0
   left 0

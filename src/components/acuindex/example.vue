@@ -13,7 +13,7 @@
           <!-- 详细文字 -->
           <div class="text">
             <div  v-for="(item, i) in items[recent].detail" 
-              :class="['text-content', 'line-' + i]"
+              :class="['text-content-example', 'line-' + i]"
               :key="i">
               <transition name="fade-scroll">
                 <p :key="recent" class="line-1">{{item}}</p>
@@ -31,7 +31,7 @@
                     <polyline id="i2" style="stroke: rgba(0, 0, 0, 0); fill: rgba(0, 0, 0, 0);" stroke-miterlimit="10" points="8,11.3 12.6,15.7 21,7.7 "/>
                 </svg>
                 </div>
-                <div class="text-content">
+                <div class="text-content-example">
                     <transition name="fade-scroll">
                         <p :key="recent" class="line-1">最大程度方便平台创作者“又快又好”上传视频，并以最快速度通过审核</p>
                     </transition>
@@ -46,7 +46,7 @@
                     <polyline id="i4" style="stroke: rgba(0, 0, 0, 0); fill: rgba(0, 0, 0, 0);" stroke-miterlimit="10" points="8,11.3 12.6,15.7 21,7.7 "/>
                 </svg>
                 </div>
-                <div class="text-content">
+                <div class="text-content-example">
                     <transition name="fade-scroll">
                         <p :key="recent" class="line-1">采用百度智能的HTTPDNS显著降低了被劫持的问题</p>
                     </transition>
@@ -61,7 +61,7 @@
                     <polyline id="i6" style="stroke: rgba(0, 0, 0, 0); fill: rgba(0, 0, 0, 0);" stroke-miterlimit="10" points="8,11.3 12.6,15.7 21,7.7 "/>
                 </svg>
                 </div>
-                <div class="text-content">
+                <div class="text-content-example">
                     <transition name="fade-scroll">
                         <p :key="recent" class="line-1">节省全民小视频成本，优化用户体验</p>
                     </transition>
@@ -115,7 +115,7 @@
     transform translateY(0)
     opacity 1 
 .section-5-all .example .example-content .left 
-  .feature .line .text-content
+  .feature .line .text-content-example
     transform translateY(0)
     opacity 1 
 .section-5 .example .example-content .right .card-content
@@ -161,7 +161,7 @@
         position absolute
         top 90px
         left 0
-        .text-content
+        .text-content-example
           width 560px
           height 26px
           overflow hidden
@@ -185,7 +185,7 @@
             position absolute
             left 0
             top 0
-          .text-content
+          .text-content-example
             position absolute
             top 0
             height 26px

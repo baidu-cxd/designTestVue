@@ -33,7 +33,7 @@
               <div class="mask"></div>
               <img :src="item.img" alt="">
             </div>
-            <div :class="['text-content', recent === i ? 'recent':'']">
+            <div :class="['text-content-solution', recent === i ? 'recent':'']">
               <h3>{{item.title}}</h3>
               <div class="button">查看详情</div>
               <p>{{item.text}}</p>
@@ -53,17 +53,17 @@
 
 
 <style lang="stylus">
-.section-4
+.acu-index.section-4
   .solution
     h2, .nav-tab
       transform translateY(0px) scale(1)
       opacity 1
-.section-4-all
+.acu-index.section-4-all
   .solution
     .card-content
       transform translateY(0px) scale(1)
       opacity 1
-.solution
+.acu-index .solution
   width 100%
   // background-color #505D73  
   background linear-gradient(#313957, #505B7B)
@@ -136,7 +136,7 @@
         .img-content
           .mask
             background-color rgba(36,104,242,.3)
-      .img-content, .text-content
+      .img-content, .text-content-solution
         position absolute
         top 0
         left 0
@@ -167,7 +167,7 @@
           z-index 2
           width 100%
           height 100%
-      .text-content
+      .text-content-solution
         border-radius 4px
         background-color #ffffff
         z-index 1

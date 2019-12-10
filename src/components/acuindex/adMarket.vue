@@ -2,8 +2,8 @@
     <div class="ad-market" :style="resolveStyle()">
       <div class="ad-market-content">
         <!-- 第一个 -->
-        <div class="ad-market-item">
-          <div class="icon"><img src="@/assets/acu-index/market-icon-1.png" alt=""></div>
+        <div class="ad-market-item" @mouseenter="play(1)">
+          <div class="icon" ref="lottie1"></div>
           <p class="text-h">
             新人体验站
           </p>
@@ -12,8 +12,8 @@
           </p>
         </div>
         <!-- 第二个 -->
-        <div class="ad-market-item">
-          <div class="icon"><img src="@/assets/acu-index/market-icon-2.png" alt=""></div>
+        <div class="ad-market-item" @mouseenter="play(2)">
+          <div class="icon" ref="lottie2"></div>
           <p class="text-h">
             .com域名特价抢
           </p>
@@ -22,8 +22,8 @@
           </p>
         </div>
         <!-- 第三个 -->
-        <div class="ad-market-item">
-          <div class="icon"><img src="@/assets/acu-index/market-icon-3.png" alt=""></div>
+        <div class="ad-market-item" @mouseenter="play(3)">
+          <div class="icon" ref="lottie3"></div>
           <p class="text-h">
             体验版高稳定虚机
           </p>
@@ -32,8 +32,8 @@
           </p>
         </div>
         <!-- 第四个 -->
-        <div class="ad-market-item">
-          <div class="icon"><img src="@/assets/acu-index/market-icon-4.png" alt=""></div>
+        <div class="ad-market-item" @mouseenter="play(4)">
+          <div class="icon" ref="lottie4"></div>
           <p class="text-h">
             百度云新功能上线
           </p>
@@ -61,6 +61,8 @@
     height 100%
     margin auto
   .ad-market-item
+    &:hover
+      cursor pointer
     width 25%
     height 100%
     overflow hidden
@@ -97,8 +99,12 @@
 
 
 <script>
+import lottie from 'lottie-web'
 export default {
   props:['scroll'],
+  mounted() {
+    this.addAnimation()
+  },
   methods: {
     resolveStyle(){
       if (this.scroll < 300) {
@@ -107,7 +113,51 @@ export default {
       } else {
         return "transform: translateY(-100px)" 
       }
-    }
+    },
+    addAnimation(){
+      this.animation1 = lottie.loadAnimation({
+        container: this.$refs.lottie1, 
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        animationData: require('@/assets/json/data4.json'),
+      });
+      this.animation2 = lottie.loadAnimation({
+        container: this.$refs.lottie2, 
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        animationData: require('@/assets/json/data3.json'),
+      });
+      this.animation3 = lottie.loadAnimation({
+        container: this.$refs.lottie3, 
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        animationData: require('@/assets/json/data2.json'),
+      });
+      this.animation4 = lottie.loadAnimation({
+        container: this.$refs.lottie4, 
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        animationData: require('@/assets/json/data1.json'),
+      });
+    },
+    play(i) {
+      if (i==1){
+        this.animation1.goToAndPlay(0, true) 
+      }
+      if (i==2){
+        this.animation2.goToAndPlay(0, true) 
+      }
+      if (i==3){
+        this.animation3.goToAndPlay(0, true) 
+      }
+      if (i==4){
+        this.animation4.goToAndPlay(0, true) 
+      }
+    },
   }
 }
 </script>

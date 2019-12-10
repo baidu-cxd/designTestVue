@@ -71,18 +71,18 @@ export default {
   computed:{
     left() {
       if (this.scroll>3700){
-        return [1035,90]
+        return [856,270]
       }
       else if (this.scroll>2800){
-        return [800,325]
+        return [660,468]
       }
       else if (this.scroll>2140){
-        return [562,560]
+        return [462,660]
       }
       else if (this.scroll>1160){
-        return [325,795]
+        return [266,860]
       }
-      return [60,1005]
+      return [40,1025]
     },
   },
   props:['scroll', 'direction'],

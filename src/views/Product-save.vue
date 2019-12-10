@@ -16,8 +16,7 @@
                 <div v-for="(item,i) in bannerImg" 
                   :style="resolveParallax(item)" 
                   :key="i" class="parallax-element">
-                    <img :src="item.img" alt="" 
-                      :style="resolveStyle(item)">
+                    <img :src="item.img" alt="" :style="'transform:translateZ('+(Math.abs(x/2) + Math.abs(y))*item.translateZ+'px)'">
                 </div>
             </div>
           </div>
@@ -32,7 +31,6 @@ export default {
         return {
             x: 0,
             y: 0,
-            control: 0,
             bannerImg : [
                 {
                      img: require("@/assets/product/banner1@2x.png"), // 云
@@ -49,7 +47,7 @@ export default {
                 {
                      img: require("@/assets/product/banner2-mask@2x.png"), //服务器投影
                      indexZ: 2,
-                     translateZ: 24,
+                     translateZ: 28,
                      value: 0.8,
                 },
                 {
@@ -68,43 +66,28 @@ export default {
                      img: require("@/assets/product/banner4@2x.png"), //辅助元素
                      indexZ: 1,
                      translateZ: 20,
-                     value: 0.8,
-                },
-                {
-                     img: require("@/assets/product/banner5@2x.png"), //辅助元素
-                     indexZ: 1,
-                     translateZ: 20,
-                     value: 0.8,
+                     value: 0.2,
                 },
             ]
         }
     },
     methods: {
         resolveParallax(item) {
-            const rotateX = -item.value * 40 * this.control
-            const rotateY = -item.value * 30 * this.control
+            const rotateX = item.value * 40 * this.x
+            const rotateY = item.value * 25 * this.y
             let style = 'z-index:' + item.indexZ + ';' + 'transform: rotateX('+rotateY+'deg) rotateY('+rotateX+'deg);'
             return style 
         },
-        resolveStyle(item) {
-            let style = 'transform:translateZ('+this.control*item.translateZ+'px);'
-            if (item.animation) {
-                style = style + 'animation: 2s' + ' ' + item.animation.type + ' ease-in-out ' + 1 * item.animation.key +'s infinite;' + 'opacity:0;'
-                console.log(style)
-            }
-            return style
-        },
         updateXY:function(event){
-            const dataX=(event.clientX - (document.body.scrollWidth))/(document.body.scrollWidth)
+            const dataX=(event.clientX - (document.body.scrollWidth/2))/(document.body.scrollWidth/2)
             let object = this.$refs.banner;
-            const dataY=-(event.offsetY - object.getBoundingClientRect().top )/480
-            const xy = Math.abs(dataX) + Math.abs(dataY)
-            this.control =  xy < 1 ? xy : 1
+            const dataY=-(event.offsetY - object.getBoundingClientRect().top - 120)/120
+            this.x = Math.abs(dataX) < 0.8 ? dataX : dataX/Math.abs(dataX) 
+            this.y = Math.abs(dataY) < 1? dataY : dataY/Math.abs(dataY) 
         },
         cleanXY() {
             this.x=0;
-            this.y=0;
-            this.control = 0
+            this.y=0
         }
     }
 }
@@ -163,14 +146,4 @@ export default {
       position absolute
       top 0
       left 0
-//动画控制组
-@keyframes star 
-  0%
-    opacity 0
-  5%
-    opacity 1
-  45%
-    opacity 1
-  50%
-    opacity 0
 </style>

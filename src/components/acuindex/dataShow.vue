@@ -6,7 +6,7 @@
       </div>
       <div class="text-wrp">
         <!-- 第一组数据 -->
-        <div class="text-content content1">
+        <div class="text-content-data content1">
           <div class="number">
             <div class="number-wrp" v-for="(number,i) in numbers1" :key="i" :style="'left:' + i * 16 + 'px' ">
               <span  v-if="typeof(number) ===  'number'" 
@@ -19,7 +19,7 @@
           <p class="text">抵御攻击</p>
         </div>
         <!-- 第二组数据 -->
-        <div class="text-content content2">
+        <div class="text-content-data content2">
           <div class="number">
             <div class="number-wrp" v-for="(number,i) in numbers2" :key="i" :style="'left:' + i * 16 + 'px' ">
               <span  v-if="typeof(number) ===  'number'" 
@@ -32,7 +32,7 @@
           <p class="text">数据可靠性</p>
         </div>
         <!-- 第三组数据 -->
-        <div class="text-content content3">
+        <div class="text-content-data content3">
           <div class="number">
             <div class="number-wrp" v-for="(number,i) in numbers3" :key="i" :style="'left:' + i * 21 + 'px' ">
               <span  v-if="typeof(number) ===  'number'" 
@@ -45,7 +45,7 @@
           <p class="text">大客户专享</p>
         </div>
         <!-- 第四组数据 -->
-        <div class="text-content content3">
+        <div class="text-content-data content3">
           <div class="number">
             <div class="number-wrp" v-for="(number,i) in numbers4" :key="i" :style="resolveStyleNumber(i)">
               <span  v-if="typeof(number) ===  'number'" 
@@ -64,7 +64,7 @@
 <style lang="stylus">
 .section-6 
   .data-show
-    .text-content 
+    .text-content-data 
       .line
         opacity 1
         transform scaleX(1)
@@ -92,7 +92,7 @@
     clear both
     height 82px
     width 1300px
-  .text-content 
+  .text-content-data 
     .number-wrp
       display block
       overflow hidden
